@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamforce 2026 Staffing Optimization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .card h3 {
+            color: #555;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .doc-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .doc-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .doc-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .doc-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-primary { background: #e3f2fd; color: #1976d2; }
+        .badge-success { background: #e8f5e9; color: #388e3c; }
+        .badge-warning { background: #fff3e0; color: #f57c00; }
+        .badge-info { background: #f3e5f5; color: #7b1fa2; }
+
+        .timeline {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid #667eea;
+        }
+
+        .timeline-item:last-child {
+            border-left-color: transparent;
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+
+        .timeline-item.current::before {
+            background: #4caf50;
+            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+        }
+
+        .timeline-item h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            margin-top: 4rem;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎯 Dreamforce 2026 Staffing Optimization</h1>
+        <p>AI-First Approach to Event Staffing Excellence</p>
+        <div style="margin-top: 1rem;">
+            <span class="badge badge-success">Discovery Phase</span>
+            <span class="badge badge-info">May 2026</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="alert">
+            <strong>⚡ Quick Start:</strong> Begin with <a href="PROJECT_SUMMARY.md">PROJECT_SUMMARY.md</a> for a visual overview, then explore <a href="deliverables/jtbd-analysis.md">JTBD Analysis</a> for automation opportunities.
+        </div>
+
+        <div class="card">
+            <h2>📊 Project Overview</h2>
+            <p>Transform Dreamforce staffing from a 65-97 hour manual process into an AI-optimized workflow that reduces manual hours by 50%+ and enables self-service for common requests.</p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Jobs Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">Time Savings Target</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Quick Win Automations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Sept 15-17</div>
+                    <div class="stat-label">Event Date</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📚 Core Documentation</h2>
+            <div class="doc-grid">
+                <a href="PROJECT_SUMMARY.md" class="doc-card">
+                    <h4>📋 Project Summary</h4>
+                    <p>Visual overview, status, and quick reference guide</p>
+                    <span class="badge badge-primary">Start Here</span>
+                </a>
+
+                <a href="README.md" class="doc-card">
+                    <h4>📖 README</h4>
+                    <p>Project overview, goals, structure, and stakeholders</p>
+                </a>
+
+                <a href="PROJECT_BRIEF.md" class="doc-card">
+                    <h4>📄 Project Brief</h4>
+                    <p>Detailed scope, objectives, risks, and success criteria</p>
+                </a>
+
+                <a href="ROADMAP.md" class="doc-card">
+                    <h4>🗓️ Roadmap</h4>
+                    <p>Timeline from May → September with phases and milestones</p>
+                </a>
+
+                <a href="TODO.md" class="doc-card">
+                    <h4>✅ TODO</h4>
+                    <p>Active task list prioritized by urgency</p>
+                </a>
+
+                <a href="MEMORY.md" class="doc-card">
+                    <h4>🧠 Memory</h4>
+                    <p>Key decisions, learnings, and project context</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎁 Key Deliverables</h2>
+            <div class="doc-grid">
+                <a href="deliverables/jtbd-analysis.md" class="doc-card">
+                    <h4>🎯 JTBD Analysis</h4>
+                    <p>30+ jobs with automation opportunities rated by complexity and impact</p>
+                    <span class="badge badge-success">Complete</span>
+                </a>
+
+                <a href="research/discovery-questions.md" class="doc-card">
+                    <h4>🔍 Discovery Questions</h4>
+                    <p>20+ critical questions with interview guides for stakeholders</p>
+                    <span class="badge badge-warning">Action Required</span>
+                </a>
+
+                <a href="docs/current-state-process.md" class="doc-card">
+                    <h4>📊 Current State Process</h4>
+                    <p>How staffing works today with pain points and time estimates</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🌍 Context Documentation</h2>
+            <div class="doc-grid">
+                <a href="context/audience.md" class="doc-card">
+                    <h4>👥 Audience</h4>
+                    <p>Summer Hash (primary) and all stakeholders</p>
+                </a>
+
+                <a href="context/business-context.md" class="doc-card">
+                    <h4>💼 Business Context</h4>
+                    <p>Why Dreamforce matters, org structure, success metrics</p>
+                </a>
+
+                <a href="context/technical-context.md" class="doc-card">
+                    <h4>⚙️ Technical Context</h4>
+                    <p>Systems landscape, integration points, constraints</p>
+                </a>
+
+                <a href="context/constraints.md" class="doc-card">
+                    <h4>🚧 Constraints</h4>
+                    <p>Timeline, resources, what we can/can't control</p>
+                </a>
+
+                <a href="context/terminology.md" class="doc-card">
+                    <h4>📖 Terminology</h4>
+                    <p>Complete glossary of terms and acronyms</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🤖 AI & Development</h2>
+            <div class="doc-grid">
+                <a href="CLAUDE.md" class="doc-card">
+                    <h4>🤖 Claude Instructions</h4>
+                    <p>Instructions for Claude Code on working with this project</p>
+                </a>
+
+                <a href="AGENTS.md" class="doc-card">
+                    <h4>🎭 AI Agents</h4>
+                    <p>Specialized agent configurations and prompts</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🗓️ Project Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item current">
+                    <h4>Discovery & Mapping</h4>
+                    <p><strong>May 21 - June 3, 2026</strong></p>
+                    <p>Document JTBD, generate discovery questions, Summer investigates unknowns, interview stakeholders</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Design & Validation</h4>
+                    <p><strong>June 4-30, 2026</strong></p>
+                    <p>Validate findings, design automation architecture, create dashboard mockups, prioritize implementation</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Implementation</h4>
+                    <p><strong>July 1-29, 2026</strong></p>
+                    <p>Build top priority automations, create dashboard, build self-service workflows, process documentation</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Testing & Training</h4>
+                    <p><strong>August 1-28, 2026</strong></p>
+                    <p>Summer tests all tools, train and validate, fix issues and refine, prepare for go-live</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Execution</h4>
+                    <p><strong>September 15-17, 2026</strong></p>
+                    <p>Run optimized process at Dreamforce, support Summer during event, monitor and learn</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎯 Automation Opportunities</h2>
+
+            <h3>🟢 Quick Wins (7 total)</h3>
+            <p><strong>Easy to build + High impact | Est. Time Savings: 20-30 hours</strong></p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+                <li>Staffing Requirements Calculator</li>
+                <li>Pass Allocation Model</li>
+                <li>Timeline Dashboard</li>
+                <li>Approval Tracking & Reminders</li>
+                <li>Shift Signup Monitor</li>
+                <li>Confirmation Email Generation</li>
+                <li>FAQ Bot/Page</li>
+            </ul>
+
+            <h3>🟠 High-Impact Complex (5 total)</h3>
+            <p><strong>Harder to build but worth it | Est. Time Savings: 30-40 hours</strong></p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+                <li>Self-Service Cancellation & Swap</li>
+                <li>Event Footprint Change Notification</li>
+                <li>Rainfocus Import Automation</li>
+                <li>Volunteer Recruitment Tracker</li>
+                <li>Pass Tracking Dashboard</li>
+            </ul>
+
+            <h3>🔴 Keep Manual (9 total)</h3>
+            <p><strong>Need human judgment</strong></p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+                <li>Final pass allocation decisions (political)</li>
+                <li>Stakeholder negotiation</li>
+                <li>Day-of emergency response</li>
+                <li>Personal relationships</li>
+                <li>Strategic decisions</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>✅ Success Metrics</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                <div>
+                    <h3>Quantitative Goals</h3>
+                    <ul style="margin-left: 2rem;">
+                        <li>50%+ reduction in manual hours</li>
+                        <li>&lt;1 minute to check current state</li>
+                        <li>70%+ self-service shift changes</li>
+                        <li>Zero pass over-allocation</li>
+                        <li>Zero coverage gaps</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Qualitative Goals</h3>
+                    <ul style="margin-left: 2rem;">
+                        <li>Summer feels confident</li>
+                        <li>Clear, predictable process</li>
+                        <li>Self-service enabled</li>
+                        <li>Documented for next year</li>
+                        <li>Learnings for other events</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Immediate Next Steps</h2>
+            <h3>This Week (May 21-27)</h3>
+            <p><strong>For You (Previous Staffing Lead):</strong></p>
+            <ul style="margin-left: 2rem;">
+                <li>Review all generated documents</li>
+                <li>Validate JTBD analysis accuracy</li>
+                <li>Add any missing context or corrections</li>
+                <li>Prioritize which jobs Summer finds most painful</li>
+            </ul>
+
+            <p style="margin-top: 1rem;"><strong>For Summer Hash:</strong></p>
+            <ul style="margin-left: 2rem;">
+                <li>Review project documentation</li>
+                <li>Read <a href="research/discovery-questions.md">discovery-questions.md</a></li>
+                <li>Schedule interviews with stakeholders</li>
+                <li>Begin investigating source of truth locations</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            <strong>Repository:</strong> <a href="https://github.com/lsevertson-oss/dreamforce-staffing-2026" target="_blank">github.com/lsevertson-oss/dreamforce-staffing-2026</a>
+        </p>
+        <p style="margin-top: 0.5rem; color: #999;">
+            Created with Claude Code | Last Updated: May 21, 2026
+        </p>
+    </footer>
+</body>
+</html>
